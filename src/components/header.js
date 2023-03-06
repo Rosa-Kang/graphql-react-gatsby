@@ -30,7 +30,7 @@ const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1300px) / 2);  
+  padding: 0 calc((100vw - 1300px) / 2);  
   z-index: 100;
   position: relative;
 ` 
