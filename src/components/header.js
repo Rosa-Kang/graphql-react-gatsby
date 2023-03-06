@@ -1,13 +1,24 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
-import {HiBars3CenterLeft} from 'react-icons/hi'
+import { HiMenuAlt3 } from "react-icons/hi";
+import { menuData} from "../data/MenuData";
+import { Button } from "./Button";
 
 const Header = () => {
   return (
     <Nav>
       <NavLink to="/">EXPLORIX</NavLink>
       <Bars />
+      <NavMenu>
+        {menuData.map((menu, index) => (
+          <NavLink to={menu.link}>{menu.title}</NavLink>
+        )
+        )}
+      </NavMenu>
+      <NavBtn>
+        <Button primary="true" round="true" to="/trips">Book a Flight</Button>
+      </NavBtn>
     </Nav>
   )
 }
@@ -33,12 +44,36 @@ padding: 0 1rem;
 cursor:pointer;
 `
 
-const Bars = styled(HiBars3CenterLeft)`
-display: none;
-color: #ccc;
+const Bars = styled(HiMenuAlt3)`
+    display: none;
+    color: #fff;
+    @media screen and (max-width: 768px) {
+    display: block;
+    position:absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, 25%);
+    height:40px;
+    width:40px;
+    cursor: pointer;
+`; 
 
-@media screen and (max-width: 768px){
-  display: block;
-  position: absolute;
-} 
+const NavMenu = styled.div`
+    display: flex;
+    align-items: center;
+    margin-right: -48px;
+
+    @media screen and (max-width: 768px){
+      display:none;
+    }
+`
+
+const NavBtn = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  
+  @media screen and(max-width: 768px){
+    display: none;
+  }
 `
