@@ -30,7 +30,7 @@ const Trips = () => {
     data.allTripsJson.edges.forEach((item,index) => {
       tripsArray.push(
         <div>
-          <img
+          <Img
             key={index}
             src={item.node.img.childImageSharp.fluid.src}
             fluid={item.node.img.childImageSharp.fluid}
